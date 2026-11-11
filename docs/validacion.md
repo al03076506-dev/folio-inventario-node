@@ -25,4 +25,14 @@ El usuario mostró una captura del formulario de productos tras autenticarse y r
 
 Atlas: proyecto separado Folio Inventario, clúster FolioCluster. Se autorizó acceso de red temporal 0.0.0.0/0 durante seis horas para la prueba. Al caducar, el alojamiento perderá acceso salvo que se configure otra regla válida. La disponibilidad para evaluación requiere resolver esta configuración; no se declara disponibilidad permanente.
 
-CI inicial: aprobado. Las últimas ejecuciones tras cambios de enrutamiento estaban en cola al consultar. CD de GitHub Actions: configurado, pero su ejecución anterior fue omitida porque ENABLE_VERCEL_DEPLOY no está habilitado. Faltan secretos VERCEL_TOKEN, VERCEL_ORG_ID y VERCEL_PROJECT_ID y habilitar esa variable para demostrar el pipeline de despliegue posterior a pruebas. El despliegue Git automático de Vercel sí se completó, pero no demuestra por sí mismo el CD mediante GitHub Actions.
+CI y CD verificados sobre la versión a4a1c54: instalación y Jest aprobados, validación de secretos y acceso al proyecto aprobada, configuración descargada, build y publicación prebuilt completados.
+
+- CI aprobado: https://github.com/al03076506-dev/folio-inventario-node/actions/runs/43101513617
+- CD aprobado: https://github.com/al03076506-dev/folio-inventario-node/actions/runs/43101622172
+- Aplicación: https://folio-inventario-node.vercel.app/
+
+El fallo de configuración de la CLI 50.4.0 persistió aunque la consulta directa a la API de Vercel devolvía HTTP 200 con proyecto y equipo correctos. Al actualizar a Vercel CLI 65.14.0, el pipeline completó todos los pasos. No se determinó una causa interna más específica de la versión antigua.
+
+Se configuró `git.deploymentEnabled=false` para que la integración Git de Vercel no publique por separado antes del resultado de las pruebas; el despliegue CLI de Actions permanece habilitado. Los workflows de diagnóstico son manuales y no despliegan.
+
+Verificación HTTP posterior al CD: documento HTML 200, /api/health 200 con database=connected, /api/products sin sesión 401. El acceso Atlas continúa sujeto a la regla temporal de seis horas configurada durante esta sesión. Debe resolverse la disponibilidad para la evaluación y adjuntar las capturas personales de CRUD.

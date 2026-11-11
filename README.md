@@ -4,7 +4,7 @@ Repositorio del proyecto: https://github.com/al03076506-dev/folio-inventario-nod
 
 Aplicación publicada: https://folio-inventario-node.vercel.app/
 
-Estado: Atlas verificado y CI inicial aprobado. El acceso de red Atlas de la prueba es temporal (seis horas); debe configurarse para mantener disponibilidad. Falta activar y demostrar el CD mediante GitHub Actions. Ver `docs/validacion.md`.
+Estado: Atlas verificado y CI inicial aprobado. El acceso de red Atlas de la prueba es temporal (seis horas); debe configurarse para mantener disponibilidad. CI y CD mediante GitHub Actions verificados: pruebas aprobadas y publicación completada. Ver `docs/validacion.md`.
 
 Aplicación web en español con Node.js 22+, Express 5, MongoDB/Mongoose, JWT, HTML/CSS/JavaScript y Jest. Cada cuenta administra únicamente sus productos. Precio expresado en MXN; máximo dos decimales. No hay roles administrativos ni catálogo compartido.
 
@@ -61,7 +61,7 @@ Validación estricta rechaza campos extra (incluido `owner`), precios negativos,
 ## Atlas y Vercel
 
 1. Crear un clúster de Atlas y un usuario de base de datos con acceso de lectura/escritura únicamente a la base `inventario`. Copiar la URI, codificando caracteres especiales de usuario/contraseña. Configurar la lista de acceso de red con las IP de salida del hosting; usar egreso fijo cuando sea posible. No abrir 0.0.0.0/0 por defecto.
-2. Crear un proyecto en Vercel importando el repositorio, raíz del proyecto `.` y Node.js 22. `api/index.js` exporta Express sin `listen`; `vercel.json` envía las rutas a esta función. No se requiere build del frontend. Desactivar despliegues automáticos de la integración Git para que el despliegue quede gobernado por el pipeline posterior a Jest.
+2. Crear un proyecto en Vercel importando el repositorio, raíz del proyecto `.` y Node.js 22. `api/index.js` exporta Express sin `listen`; `vercel.json` envía las rutas a esta función. No se requiere build del frontend. La configuración `git.deploymentEnabled=false` de vercel.json desactiva despliegues automáticos de la integración Git; GitHub Actions publica con CLI después de Jest.
 3. Configurar en Vercel, entorno Production: `MONGODB_URI`, `JWT_SECRET` (sensible), `APP_ORIGIN=https://<dominio-produccion>` y `NODE_ENV=production`. Usar un dominio de producción estable. No configurar MONGODB_URI o JWT_SECRET como variables públicas del frontend.
 4. En GitHub configurar Environment `production` (opcionalmente con revisores), secretos `VERCEL_TOKEN`, `VERCEL_ORG_ID` y `VERCEL_PROJECT_ID`; IDs disponibles al vincular el proyecto con Vercel. Crear variable de repositorio `ENABLE_VERCEL_DEPLOY=true` solo después de configurar todo.
 5. Hacer push a `main`: CI ejecuta `npm ci`, Jest y publica cobertura. Si el evento es push y las pruebas pasan, CD toma **el mismo SHA** validado, construye con Vercel CLI y despliega. No despliega código de pull requests externos. Concurrencia serializa despliegues. Si faltan servicios, CD permanece desactivado; no se representa como despliegue completado.

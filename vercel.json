@@ -17,5 +17,8 @@
       "destination": "/index.html",
       "permanent": false
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": false
+  }
 }

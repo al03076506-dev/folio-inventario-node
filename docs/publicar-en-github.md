@@ -1,5 +1,7 @@
 # Publicar desde la cuenta correcta
 
+Estado actual: repositorio publicado y CI/CD verificado. Aplicación: https://folio-inventario-node.vercel.app/ . Las instrucciones siguientes permiten reproducir el proceso.
+
 La cuenta indicada por el usuario es `al03076506-dev`. La conexión actualizada tiene escritura en `al03076506-dev/folio-inventario-node`. El repositorio `inventario-facil-tecmilenio` no se ha modificado. Las siguientes instrucciones permiten reproducir la publicación desde una copia local.
 
 ## Repositorio nuevo (recomendado para evitar sobrescribir otro trabajo)
@@ -23,4 +25,4 @@ Clónalo, crea una rama e integra los archivos revisando diferencias. No uses pu
 
 ## Despliegue
 
-Sigue el apartado Atlas y Vercel del README. Hasta configurar esos servicios y ejecutar el workflow, no existe una URL de producción verificada para esta versión.
+Sigue el apartado Atlas y Vercel del README. Los servicios ya se configuraron y el workflow de despliegue fue verificado; las instrucciones del README permiten reproducirlo.

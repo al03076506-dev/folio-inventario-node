@@ -60,7 +60,7 @@ Aceptación: /api/health: 200 conectado o 503 desconectado.
 ### RF-12 · Automatización
 Ejecutar pruebas por push/PR y desplegar el SHA validado al habilitar CD.
 
-Aceptación: Archivos YAML incluidos; ejecución remota pendiente de repositorio y secretos.
+Aceptación: Archivos YAML incluidos; CI y CD remotos ejecutados y aprobados.
 
 ## No funcionales
 
