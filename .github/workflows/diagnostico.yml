@@ -1,0 +1,12 @@
+name: Diagnóstico de ejecutor
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inicio:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 2
+    steps:
+      - name: Verificar inicio
+        run: echo "El ejecutor de GitHub Actions inició correctamente"
