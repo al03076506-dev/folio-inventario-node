@@ -29,8 +29,22 @@ jobs:
           cache: npm
       - name: Validar secretos
         run: test -n "$VERCEL_TOKEN" && test -n "$VERCEL_ORG_ID" && test -n "$VERCEL_PROJECT_ID"
+      - name: Verificar acceso al proyecto
+        run: |
+          node <<'JS'
+          (async () => {
+            const url = new URL('https://api.vercel.com/v9/projects/' + encodeURIComponent(process.env.VERCEL_PROJECT_ID));
+            url.searchParams.set('teamId', process.env.VERCEL_ORG_ID);
+            const response = await fetch(url, { headers: { Authorization: 'Bearer ' + process.env.VERCEL_TOKEN }, signal: AbortSignal.timeout(20000) });
+            console.log('Acceso al proyecto de producción: HTTP ' + response.status);
+            if (!response.ok) throw new Error('No se puede acceder al proyecto con los secretos del entorno production');
+            const data = await response.json();
+            if (data.name !== 'folio-inventario-node' || data.accountId !== process.env.VERCEL_ORG_ID) throw new Error('Proyecto o equipo incorrectos');
+            console.log('Proyecto y equipo verificados');
+          })().catch(error => { console.error(error.message); process.exitCode = 1; });
+          JS
       - name: Instalar CLI
-        run: npm install --global vercel@50.4.0
+        run: npm install --global vercel@65.14.0
       - name: Obtener configuración
         run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
       - name: Construir
