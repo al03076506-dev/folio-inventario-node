@@ -1,0 +1,28 @@
+erDiagram
+ USER ||--o{ PRODUCT : posee
+ USER ||--o{ SESSION : inicia
+ USER {
+  ObjectId _id PK
+  string name
+  string email UK
+  string passwordHash
+  datetime createdAt
+  datetime updatedAt
+ }
+ PRODUCT {
+  ObjectId _id PK
+  ObjectId owner FK
+  string name
+  string description
+  number price
+  integer stock
+  datetime createdAt
+  datetime updatedAt
+ }
+ SESSION {
+  string _id PK "jti del JWT"
+  ObjectId user FK
+  datetime expiresAt "indice TTL"
+  datetime createdAt
+  datetime updatedAt
+ }

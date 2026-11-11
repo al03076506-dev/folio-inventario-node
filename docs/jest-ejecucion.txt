@@ -1,0 +1,37 @@
+
+> inventario-seguro@1.0.0 test:coverage
+> jest --runInBand --coverage
+
+-----------------|---------|----------|---------|---------|-------------------
+File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------|---------|----------|---------|---------|-------------------
+All files        |   99.47 |    92.75 |     100 |     100 |                   
+ src             |   98.52 |    88.09 |     100 |     100 |                   
+  app.js         |   97.82 |    79.16 |     100 |     100 | 7-10,34           
+  config.js      |     100 |      100 |     100 |     100 |                   
+  db.js          |     100 |      100 |     100 |     100 |                   
+ src/controllers |     100 |      100 |     100 |     100 |                   
+  auth.js        |     100 |      100 |     100 |     100 |                   
+  products.js    |     100 |      100 |     100 |     100 |                   
+ src/middleware  |     100 |      100 |     100 |     100 |                   
+  auth.js        |     100 |      100 |     100 |     100 |                   
+  validate.js    |     100 |      100 |     100 |     100 |                   
+ src/models      |     100 |      100 |     100 |     100 |                   
+  Product.js     |     100 |      100 |     100 |     100 |                   
+  Session.js     |     100 |      100 |     100 |     100 |                   
+  User.js        |     100 |      100 |     100 |     100 |                   
+ src/routes      |     100 |      100 |     100 |     100 |                   
+  auth.js        |     100 |      100 |     100 |     100 |                   
+  products.js    |     100 |      100 |     100 |     100 |                   
+-----------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 4 passed, 4 total
+Tests:       46 passed, 46 total
+Snapshots:   0 total
+Time:        22.839 s, estimated 83 s
+Ran all test suites.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

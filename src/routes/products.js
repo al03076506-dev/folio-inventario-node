@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const mongoose = require('mongoose');
+const auth = require('../middleware/auth');
+const { validate } = require('../middleware/validate');
+const c = require('../controllers/products');
+router.use(auth);
+router.param('id', (req, res, next, id) => mongoose.isObjectIdOrHexString(id) ? next() : res.status(400).json({ error: 'Identificador inválido' }));
+router.route('/').get(validate('pagination', 'query'), c.list).post(validate('product'), c.create);
+router.route('/:id').get(c.get).patch(validate('update'), c.update).delete(c.remove);
+module.exports = router;
