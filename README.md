@@ -2,6 +2,10 @@
 
 Repositorio del proyecto: https://github.com/al03076506-dev/folio-inventario-node
 
+Aplicación publicada: https://folio-inventario-node.vercel.app/
+
+Estado: Atlas verificado y CI inicial aprobado. El acceso de red Atlas de la prueba es temporal (seis horas); debe configurarse para mantener disponibilidad. Falta activar y demostrar el CD mediante GitHub Actions. Ver `docs/validacion.md`.
+
 Aplicación web en español con Node.js 22+, Express 5, MongoDB/Mongoose, JWT, HTML/CSS/JavaScript y Jest. Cada cuenta administra únicamente sus productos. Precio expresado en MXN; máximo dos decimales. No hay roles administrativos ni catálogo compartido.
 
 ## Ejecutar
