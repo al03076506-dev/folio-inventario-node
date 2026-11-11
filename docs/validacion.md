@@ -17,6 +17,6 @@ Codex generó las pruebas a partir de los controladores y rutas existentes. Se r
 
 ## Pendientes externos
 
-El usuario identifica su cuenta como `al03076506-dev`. La integración GitHub de la sesión devuelve una cuenta distinta (`Adria1617`) y carece de permiso para crear repositorios. No se ha publicado código ni creado repositorio. No existe URL de repositorio verificada para esta entrega.
+Repositorio de destino verificado: https://github.com/al03076506-dev/folio-inventario-node. La conexión se actualizó a `al03076506-dev` y tiene permiso de escritura. Consultar la pestaña Actions para el resultado de CI remoto; la evidencia numérica anterior corresponde a la ejecución local.
 
 No hay secretos de Atlas/Vercel configurados. La conexión Atlas, publicación SaaS y ejecución remota de CI/CD permanecen pendientes. Los archivos de configuración están preparados; no constituyen evidencia de despliegue.

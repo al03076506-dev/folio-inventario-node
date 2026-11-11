@@ -1,5 +1,7 @@
 # Folio · Gestión segura de productos
 
+Repositorio del proyecto: https://github.com/al03076506-dev/folio-inventario-node
+
 Aplicación web en español con Node.js 22+, Express 5, MongoDB/Mongoose, JWT, HTML/CSS/JavaScript y Jest. Cada cuenta administra únicamente sus productos. Precio expresado en MXN; máximo dos decimales. No hay roles administrativos ni catálogo compartido.
 
 ## Ejecutar

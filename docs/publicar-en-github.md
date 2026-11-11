@@ -1,6 +1,6 @@
 # Publicar desde la cuenta correcta
 
-La cuenta indicada por el usuario es `al03076506-dev`. La integración actual tiene solo lectura en `al03076506-dev/inventario-facil-tecmilenio`. No se ha modificado ese repositorio.
+La cuenta indicada por el usuario es `al03076506-dev`. La conexión actualizada tiene escritura en `al03076506-dev/folio-inventario-node`. El repositorio `inventario-facil-tecmilenio` no se ha modificado. Las siguientes instrucciones permiten reproducir la publicación desde una copia local.
 
 ## Repositorio nuevo (recomendado para evitar sobrescribir otro trabajo)
 
