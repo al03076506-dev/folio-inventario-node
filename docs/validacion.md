@@ -23,7 +23,7 @@ La aplicación fue publicada por el usuario con la integración Git de Vercel: h
 
 El usuario mostró una captura del formulario de productos tras autenticarse y reportó completar las operaciones de prueba. Esto constituye evidencia aportada por el usuario, no una sesión de navegador automatizada por el asistente. Falta adjuntar capturas de alta, consulta, modificación y eliminación y verificar persistencia al volver a iniciar sesión.
 
-Atlas: proyecto separado Folio Inventario, clúster FolioCluster. Se autorizó acceso de red temporal 0.0.0.0/0 durante seis horas para la prueba. Al caducar, el alojamiento perderá acceso salvo que se configure otra regla válida. La disponibilidad para evaluación requiere resolver esta configuración; no se declara disponibilidad permanente.
+Atlas: proyecto separado Folio Inventario, clúster FolioCluster. La regla 0.0.0.0/0 se creó temporalmente y después el usuario la cambió a permanente para evaluación. Su captura muestra Active, sin reloj, con comentario Acceso Vercel – evaluación. Esta regla permite conexiones desde cualquier IP con autenticación; no implica garantía de disponibilidad del servicio. Para producción se recomienda restringir orígenes mediante egreso fijo.
 
 CI y CD verificados sobre la versión a4a1c54: instalación y Jest aprobados, validación de secretos y acceso al proyecto aprobada, configuración descargada, build y publicación prebuilt completados.
 
@@ -35,4 +35,4 @@ El fallo de configuración de la CLI 50.4.0 persistió aunque la consulta direct
 
 Se configuró `git.deploymentEnabled=false` para que la integración Git de Vercel no publique por separado antes del resultado de las pruebas; el despliegue CLI de Actions permanece habilitado. Los workflows de diagnóstico son manuales y no despliegan.
 
-Verificación HTTP posterior al CD: documento HTML 200, /api/health 200 con database=connected, /api/products sin sesión 401. El acceso Atlas continúa sujeto a la regla temporal de seis horas configurada durante esta sesión. Debe resolverse la disponibilidad para la evaluación y adjuntar las capturas personales de CRUD.
+Verificación HTTP posterior al CD: documento HTML 200, /api/health 200 con database=connected, /api/products sin sesión 401. El usuario confirmó mediante captura que la regla de red Atlas está activa y sin caducidad. Falta adjuntar las capturas personales del CRUD a la entrega.
